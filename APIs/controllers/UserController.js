@@ -1,3 +1,4 @@
+var User = require("../models/User");
 
 class UserController{
 
@@ -7,11 +8,21 @@ class UserController{
         var {email, name, password} = req.body;
 
         if(email == undefined){
-            res.sendstatus(400);
+            res.status(400);
             res.send("e-mail indefinido");
-        }else{
-            res.send("e-mail ok")
+            return;
         }
+
+        var emailExists = await User.findEmail(email);
+
+        if(emailExists){
+            res.status(406);
+            res.json({err: "O e-mail informado já possui cadastro!"})
+        }
+
+        await User.new(email,password,name);
+
+        res.send("Dados informados ok!");
 
     }
 
