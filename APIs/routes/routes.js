@@ -16,5 +16,8 @@ router.post("/user", UserController.create);
 //Rotas tipo PUT
 router.put("/user", UserController.edit);
 
+//Rotas tipo DELETE
+router.delete("/user/:id", UserController.delete);
+
 
 module.exports = router;
