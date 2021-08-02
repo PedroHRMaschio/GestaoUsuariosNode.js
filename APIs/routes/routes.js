@@ -14,6 +14,7 @@ router.get("/user/:id", UserController.findUser)
 router.post("/user", UserController.create);
 router.post("/recoverpassword", UserController.recoverPassword);
 router.post("/changepassword",UserController.changePassword);
+router.post("/login",UserController.login);
 
 //Rotas tipo PUT
 router.put("/user", UserController.edit);
