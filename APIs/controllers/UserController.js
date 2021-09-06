@@ -28,9 +28,9 @@ class UserController{
     async create(req,res){
         var {email, name, password} = req.body;
 
-        if(email == undefined){
-            res.status(400);
-            res.send("e-mail indefinido");
+        if(email == undefined || email == "" || email == " "){
+            res.statusCode = 400;
+            res.send({err: "e-mail indefinido"});
             return;
         }
 

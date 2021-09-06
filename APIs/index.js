@@ -3,6 +3,9 @@ var express = require("express")
 var app = express()
 var router = require("./routes/routes")
 var validator = require("express-validator")
+var cors = require("cors")
+
+app.use(cors());
  
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
