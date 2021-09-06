@@ -16,6 +16,7 @@ router.post("/user", UserController.create);
 router.post("/recoverpassword",UserAuth, UserController.recoverPassword);
 router.post("/changepassword",UserAuth, UserController.changePassword);
 router.post("/login",UserController.login);
+router.post("/validate",AdminAuth,HomeController.validate);
 
 //Rotas tipo PUT
 router.put("/user",UserAuth, UserController.edit);
